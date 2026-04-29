@@ -1,0 +1,141 @@
+/* Navbar styling */
+.navbar {
+  background-color: #1a1a40;
+  color: white;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .logo {
+  color: #ffcc00;
+  font-size: 22px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navbar .nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.navbar .nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  align-self: center;
+}
+
+.navbar .nav-links a:hover {
+  text-decoration: underline;
+  color: #ffc107;
+
+}
+
+.nav-auth-btn {
+  background-color: #ffcc00;
+  color: #1a1a40;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nav-auth-btn.signup {
+  background-color: #4539B4;
+  color: #fff;
+}
+
+.nav-auth-btn:hover {
+  opacity: 0.85;
+  text-decoration: none;
+}
+
+.nav-toggle {
+  display: none;
+  background: #ffcc00;
+  color: #1a1a40;
+  border: none;
+  padding: 6px 12px;
+  font-size: 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Footer styling */
+.footer {
+  background-color: #1a1a40;
+  color: white;
+  padding: 40px 60px 20px;
+  margin-top: 50px;
+
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-column h3 {
+  color: #ffcc00;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.footer-column a {
+  color: #ddd;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+.footer-bottom {
+  text-align: center;
+  color: #aaa;
+  font-size: 14px;
+  margin-top: 30px;
+  border-top: 1px solid #333;
+  padding-top: 15px;
+
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .nav-toggle {
+    display: block;
+    order: 1;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    display: none;
+    padding-top: 10px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 8px 0;
+  }
+}

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EventsHub - Manage Events</title>
+  <link rel="stylesheet" href="{% static 'css/Dashboard.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer_header.css' %}">
+  <script src="{% static 'js/utils/api.js' %}"></script>
+  <script src="{% static 'js/admin/dashboard.js' %}" defer></script>
+
+
+</head>
+
+<body>
+
+  <div class="navbar">
+    <a href="/frontend/pages/landing-page.html" class="logo">EventsHub</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <div class="nav-links">
+      <a href="/frontend/pages/admin/dashboard.html">Home</a>
+      <a href="/frontend/pages/admin/registerations.html">Events Registrations</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>Manage Events</h1>
+
+    <div class="top-actions">
+      <button class="btn-create" id="openCreateModal" type="button">Create Event</button>
+    </div>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Date / Time</th>
+            <th>Location</th>
+            <th>Category</th>
+            <th>Seats (Booked/Total)</th>
+            <th>Price</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="eventsTbody"></tbody>
+      </table>
+    </div>
+
+  </div>
+  <!-- Modal -->
+  <div class="modal" id="eventModal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose" aria-label="Close" type="button">✕</button>
+      <h2 id="modalTitle">Create Event</h2>
+      <form id="eventForm">
+        <input type="hidden" name="eventId" id="eventId">
+        <div class="form-grid">
+          <label>
+            <span>Title *</span>
+            <input type="text" id="title" required>
+          </label>
+          <label>
+            <span>Date *</span>
+            <input type="date" id="date" required>
+          </label>
+          <label>
+            <span>Time *</span>
+            <input type="time" id="time" required>
+          </label>
+          <label>
+            <span>Category *</span>
+            <input type="text" id="category" required placeholder="e.g. Technology">
+          </label>
+          <label>
+            <span>Total Seats *</span>
+            <input type="number" id="numberOfSeats" required min="1" placeholder="50">
+          </label>
+          <label>
+            <span>Ticket Price *</span>
+            <input type="number" id="ticketPrice" required min="0" placeholder="0">
+          </label>
+          <label>
+            <span>Location Name *</span>
+            <input type="text" id="locationName" required placeholder="Venue name">
+          </label>
+          <label>
+            <span>Image URL</span>
+            <input type="url" id="image" placeholder="https://...">
+          </label>
+          <label class="full-row">
+            <span>Description *</span>
+            <textarea id="description" required rows="4" placeholder="Short description of the event"></textarea>
+          </label>
+        </div>
+        <div class="modal-actions">
+          <button type="submit" class="btn-primary" id="saveEventBtn">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Notification Modal -->
+  <div class="notification-modal" id="notificationModal" aria-hidden="true">
+    <div class="notification-modal-content">
+      <div class="notification-icon" id="notificationIcon"></div>
+      <p class="notification-message" id="notificationMessage"></p>
+      <button class="notification-btn" id="notificationBtn" type="button">OK</button>
+    </div>
+  </div>
+
+  <!-- Confirmation Modal -->
+  <div class="confirmation-modal" id="confirmationModal" aria-hidden="true">
+    <div class="confirmation-modal-content">
+      <div class="confirmation-icon">⚠️</div>
+      <p class="confirmation-message" id="confirmationMessage"></p>
+      <div class="confirmation-actions">
+        <button class="btn-confirm" id="confirmYes" type="button">Yes</button>
+        <button class="btn-cancel" id="confirmNo" type="button">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>Company Info</h3>
+        <a href="#">About Us</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Careers</a>
+        <a href="#">Help</a>
+      </div>
+      <div class="footer-column">
+        <h3>Legal & Privacy</h3>
+        <a href="#">FAQs</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+
+      <div class="footer-column">
+        <h3>Categories</h3>
+        <a href="#">Workshops</a>
+        <a href="#">Meetups</a>
+        <a href="#">Conferences</a>
+        <a href="#">Webinars</a>
+      </div>
+
+      <div class="footer-column">
+        <h3>Follow Us</h3>
+        <a href="#">Facebook</a>
+        <a href="#">linkedin</a>
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+      </div>
+      <div class="footer-column">
+        <h3>Download The App</h3>
+        <img src="{% static 'imgs/download.png' %}" alt="" width="170px" height="50px">
+        <img src="{% static 'imgs/apple store 2.jpg' %}" width="170px" height="50px" alt="">
+
+
+      </div>
+    </div>
+
+    <p class="footer-bottom">© 2025 EventsHub. All rights reserved.</p>
+  </footer>
+  <script src="{% static 'js/nav.js' %}" defer></script>
+
+
+</body>
+
+</html>

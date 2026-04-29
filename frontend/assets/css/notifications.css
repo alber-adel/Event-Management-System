@@ -1,0 +1,48 @@
+/* Global Notification Modal Styles */
+.notification-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 10000;
+}
+
+.notification-modal[aria-hidden="false"] {
+  display: flex;
+}
+
+.notification-modal-content {
+  background: #fff;
+  color: #222;
+  width: min(90vw, 420px);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  padding: 20px 22px;
+  text-align: center;
+}
+
+.notification-icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.notification-message {
+  margin: 8px 0 16px;
+  line-height: 1.4;
+}
+
+.notification-btn {
+  background: #4539B4;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.notification-btn:active {
+  transform: translateY(1px);
+}

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Details</title>
+  <link rel="stylesheet" href="{% static 'css/footer_header.css' %}">
+  <link rel="stylesheet" href="{% static 'css/event_details.css' %}">
+  <link rel="stylesheet" href="{% static 'css/notifications.css' %}">
+  <script src="{% static 'js/utils/api.js' %}"></script>
+  <script src="{% static 'js/utils/notify.js' %}"></script>
+  <script src="{% static 'js/eventDetails.js' %}" defer></script>
+  <script src="{% static 'js/nav.js' %}" defer></script>
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <div class="navbar">
+    <a href="/frontend/index.html" class="logo">EventsHub</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <div class="nav-links">
+      <a href="/frontend/index.html">Home</a>
+      <a href="/frontend/pages/registered-events.html">My Events</a>
+      <a href="/frontend/pages/about.html">About</a>
+      <a href="/frontend/pages/contact.html">Contact</a>
+    </div>
+  </div>
+
+  <main class="details-container">
+
+    <section class="event-header-info">
+      <h1 class="event-title" id="event-title">Global AI & Data Science Conference 2025</h1>
+      <div class="event-meta">
+        <span class="location" id="event-location">San Francisco, CA</span>
+        <span class="separator">|</span>
+        <span class="date-time" id="event-date">September 1, 2025 | 9:00 AM - 6:00 PM</span>
+      </div>
+    </section>
+
+    <section class="event-main-content">
+      <div class="event-image-block">
+        <img src="{% static 'imgs/event-1.jpg' %}" alt="Event Image" id="event-image">
+      </div>
+
+      <div class="event-details-grid">
+        <!-- Description -->
+        <div class="description-block">
+          <h2>Event Description</h2>
+          <p id="event-description">
+            Join the world's leading experts, researchers, and innovators for the premier AI and Data Science
+            conference. This full-day event covers the latest advancements in machine learning, deep neural networks,
+            generative AI, and ethical data governance. Whether you are a seasoned data scientist, a software engineer,
+            or a business leader looking to integrate AI solutions, this conference offers unparalleled networking and
+            learning opportunities. We will feature keynote speakers from major tech companies and specialized tracks
+            for various skill levels.
+          </p>
+          <p>
+            The agenda includes hands-on workshops, technical deep dives, and discussions on real-world applications of
+            AI across finance, healthcare, and retail sectors. Don't miss this opportunity to shape the future of
+            technology and connect with thousands of like-minded professionals.
+          </p>
+
+          <div class="key-info-table">
+            <h2>Key Information</h2>
+            <table>
+              <tr>
+                <td>Event ID:</td>
+                <td id="event-id">1002</td>
+              </tr>
+              <tr>
+                <td>Category:</td>
+                <td id="event-category">Conference</td>
+              </tr>
+              <tr>
+                <td>Total Seats:</td>
+                <td id="event-seats">250</td>
+              </tr>
+              <tr>
+                <td>Price:</td>
+                <td id="event-price">$499.00</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- Registration Sidebar -->
+        <div class="registration-sidebar">
+          <div class="registration-box" id="registration-box">
+            <div class="price-tag" id="price-tag">$499</div>
+            <p class="available-seats">
+              <span id="seats-remaining">75</span>
+              Seats Remaining
+            </p>
+            <!-- <button class="register-button">Register Now</button> -->
+          </div>
+
+          <div class="contact-organizer">
+            <h3>Organizer Contact</h3>
+            <p>Name: Tech Solutions Inc.</p>
+            <p>Email: contact@techconf.com</p>
+            <p>Phone: (555) 123-4567</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>Company Info</h3>
+        <a href="#">About Us</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Careers</a>
+        <a href="#">Help</a>
+      </div>
+      <div class="footer-column">
+        <h3>Legal & Privacy</h3>
+        <a href="#">FAQs</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+
+      <div class="footer-column">
+        <h3>Categories</h3>
+        <a href="#">Workshops</a>
+        <a href="#">Meetups</a>
+        <a href="#">Conferences</a>
+        <a href="#">Webinars</a>
+      </div>
+
+      <div class="footer-column">
+        <h3>Follow Us</h3>
+        <a href="#">Facebook</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+      </div>
+
+      <div class="footer-column">
+        <h3>Download The App</h3>
+        <img src="{% static 'imgs/download.png' %}" alt="" width="170px" height="50px">
+        <img src="{% static 'imgs/apple store 2.jpg' %}" width="170px" height="50px" alt="">
+      </div>
+    </div>
+
+    <p class="footer-bottom">© 2025 EventsHub. All rights reserved.</p>
+  </footer>
+
+  <script>
+    (function () {
+      if (!sessionStorage.getItem('currentUser')) {
+        document.querySelectorAll('.nav-links').forEach(nav => {
+          nav.innerHTML = '';
+          const login = document.createElement('a');
+          login.href = '/frontend/pages/login.html';
+          login.className = 'nav-auth-btn';
+          login.textContent = 'Login';
+          const signup = document.createElement('a');
+          signup.href = '/frontend/pages/Sign-up.html';
+          signup.className = 'nav-auth-btn signup';
+          signup.textContent = 'Sign Up';
+          nav.appendChild(login);
+          nav.appendChild(signup);
+        });
+      }
+    })();
+  </script>
+
+</body>
+
+</html>

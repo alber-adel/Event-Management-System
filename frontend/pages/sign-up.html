@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EventsHub — Sign Up</title>
+  <link rel="stylesheet" href="{% static 'css/authentication.css' %}">
+  <link rel="stylesheet" href="{% static 'css/notifications.css' %}">
+  <script src="{% static 'js/utils/api.js' %}"></script>
+  <script src="{% static 'js/utils/notify.js' %}"></script>
+  <script defer src="{% static 'js/signUp.js' %}"></script>
+</head>
+
+<body>
+  <div class="container">
+    <aside class="left">
+      <div class="logo">
+        <img src="{% static 'imgs/ticket.png' %}" alt="">
+        <span class="logo-text">EventsHub</span>
+      </div>
+      <div class="maintext">
+        <h2 class="p1">
+          Join the excitement.
+          Create an account today!
+          <br>
+        </h2>
+      </div>
+    </aside>
+
+    <main class="right">
+      <div class="mainr">
+        <button class="close">✕</button>
+
+        <h2 class="title">Sign Up</h2>
+
+        <div class="social-box">
+          <button class="social google"><img src="{% static 'imgs/Icon.png' %}" alt=""> Sign up with Google</button>
+          <button class="social fb"><img src="{% static 'imgs/icons8-facebook 1.png' %}" alt=""> Sign up with
+            Facebook</button>
+        </div>
+
+        <div class="OR">OR</div>
+
+        <form class="login-form" id="signUpForm" autocomplete="off" novalidate>
+
+          <label class="field">
+            <span class="field-label">Username</span>
+            <input type="text" id="name" name="username" placeholder="Choose a username" required>
+          </label>
+
+          <label class="field">
+            <span class="field-label">E-mail Address</span>
+            <input type="email" id="email" name="email" placeholder="Enter your e-mail" required>
+          </label>
+
+          <label class="field password-field">
+            <span class="field-label">Password</span>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+          </label>
+
+          <label class="field password-field">
+            <span class="field-label">Confirm Password</span>
+            <input type="password" id="confirmPassword" name="confirm_password" placeholder="Re-enter your password"
+              required>
+          </label>
+
+          <div class="field-checkbox">
+            <input type="checkbox" id="isAdmin" name="is_admin">
+            <label for="isAdmin">Register as Admin</label>
+          </div>
+
+          <button type="submit" id="createAccount" class="btn login-btn">Create Account</button>
+        </form>
+
+        <p class="signup">Already have an account? <a href="/frontend/pages/login.html">Log In</a></p>
+      </div>
+    </main>
+  </div>
+
+
+  <script src="{% static 'js/nav.js' %}" defer></script>
+</body>
+
+</html>

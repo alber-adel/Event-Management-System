@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EventsHub - Manage Registrations</title>
+  <link rel="stylesheet" href="{% static 'css/registerations.css' %}">
+  <link rel="stylesheet" href="{% static 'css/notifications.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer_header.css' %}">
+  <script src="{% static 'js/utils/api.js' %}"></script>
+  <script src="{% static 'js/utils/notify.js' %}"></script>
+</head>
+
+<body>
+
+  <div class="navbar">
+    <a href="/frontend/pages/landing-page.html" class="logo">EventsHub</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <div class="nav-links">
+      <a href="/frontend/pages/admin/dashboard.html">Home</a>
+      <a href="/frontend/pages/admin/registerations.html">Events Registrations</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>Manage Event Registrations</h1>
+
+    <div style="margin:0 0 16px;display:flex;gap:12px;align-items:center;">
+      <label for="eventSelect"><strong>Select Event:</strong></label>
+      <select id="eventSelect"></select>
+      <button id="loadRegistrations" class="accept-btn" style="min-width:150px;">Load</button>
+    </div>
+
+    <div id="registrationsContainer" class="registration-list">
+      <!-- filled by JS -->
+    </div>
+  </div>
+
+  <div id="message-modal-overlay">
+    <div class="message-modal-content">
+      <span class="close-btn">&times;</span>
+      <h2 id="modal-title">Confirm Event Acceptance</h2>
+
+      <div class="recipient-info">
+        <p>Registration for: <strong id="modal-event-title">Tech Innovation Summit</strong></p>
+        <p>Recipient: <strong id="modal-recipient-name">User Name</strong></p>
+      </div>
+
+      <label for="message-input">Enter your message to the user:</label>
+      <textarea id="message-input"
+        placeholder="e.g., Your registration has been accepted. We look forward to seeing you at the event!"></textarea>
+
+      <button id="send-action-btn" class="send-btn" style="background-color: #28a745;">Send & <span
+          id="action-text">Accept</span></button>
+      <p class="note">A default message will be sent if you leave the box empty.</p>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>Company Info</h3>
+        <a href="#">About Us</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Careers</a>
+        <a href="#">Help</a>
+      </div>
+      <div class="footer-column">
+        <h3>Legal & Privacy</h3>
+        <a href="#">FAQs</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+
+      <div class="footer-column">
+        <h3>Categories</h3>
+        <a href="#">Workshops</a>
+        <a href="#">Meetups</a>
+        <a href="#">Conferences</a>
+        <a href="#">Webinars</a>
+      </div>
+
+      <div class="footer-column">
+        <h3>Follow Us</h3>
+        <a href="#">Facebook</a>
+        <a href="#">linkedin</a>
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+      </div>
+      <div class="footer-column">
+        <h3>Download The App</h3>
+        <img src="{% static 'imgs/download.png' %}" alt="" width="170px" height="50px">
+        <img src="{% static 'imgs/apple store 2.jpg' %}" width="170px" height="50px" alt="">
+      </div>
+    </div>
+    <p class="footer-bottom">© 2025 EventsHub. All rights reserved.</p>
+  </footer>
+  <script src="{% static 'js/registrations.js' %}"></script>
+  <script src="{% static 'js/nav.js' %}" defer></script>
+  <script>
+    (function () {
+      if (!sessionStorage.getItem('currentUser')) {
+        document.querySelectorAll('.nav-links').forEach(nav => {
+          nav.innerHTML = '';
+          const login = document.createElement('a');
+          login.href = '/frontend/pages/login.html';
+          login.className = 'nav-auth-btn';
+          login.textContent = 'Login';
+          const signup = document.createElement('a');
+          signup.href = '/frontend/pages/Sign-up.html';
+          signup.className = 'nav-auth-btn signup';
+          signup.textContent = 'Sign Up';
+          nav.appendChild(login);
+          nav.appendChild(signup);
+        });
+      }
+    })();
+  </script>
+</body>
+
+</html>

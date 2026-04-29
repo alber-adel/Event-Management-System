@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+  <meta charset="UTF-8">
+  <title>About — EventsHub</title>
+  <link rel="stylesheet" href="{% static 'css/general.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer_header.css' %}">
+  <link rel="stylesheet" href="{% static 'css/queries.css' %}">
+  <script src="{% static 'js/utils/api.js' %}"></script>
+  <script src="{% static 'js/nav.js' %}" defer></script>
+</head>
+
+<body style="min-height:100vh;display:flex;flex-direction:column;">
+  <div class="navbar">
+    <a href="/frontend/index.html" class="logo">EventsHub</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <div class="nav-links">
+      <a href="/frontend/index.html">Home</a>
+      <a href="/frontend/pages/registered-events.html">My Events</a>
+      <a href="/frontend/pages/about.html">About</a>
+      <a href="/frontend/pages/contact.html">Contact</a>
+    </div>
+  </div>
+  <main class="container" style="flex:1;">
+    <h1 class="main-heading">About EventsHub</h1>
+    <section style="max-width:900px;margin:0 auto 32px;">
+      <p style="margin-bottom:16px;">EventsHub is a lightweight front-end platform prototype for discovering, creating,
+        and registering for events. It demonstrates client-side user management, event browsing, and registration
+        workflows using LocalStorage and SessionStorage.</p>
+      <p style="margin-bottom:16px;">Goals: simplify event discovery, enable fast prototyping for admin CRUD, and
+        provide a clean responsive UI suitable for extension with a backend later.</p>
+      <p>Tech: HTML, CSS, Vanilla JavaScript. Future: add API layer, authentication tokens, admin moderation dashboard,
+        and real-time seat tracking.</p>
+    </section>
+    <section style="max-width:900px;margin:0 auto 48px;">
+      <h2 style="margin-bottom:12px;">Features Snapshot</h2>
+      <ul style="list-style:disc;padding-left:20px;line-height:1.6;">
+        <li>User signup/login (client-side hashed placeholder)</li>
+        <li>Event listing with registration state</li>
+        <li>Dynamic navbar with role awareness (basic)</li>
+        <li>Responsive grid layout</li>
+      </ul>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>Company Info</h3>
+        <a href="/frontend/pages/about.html">About Us</a>
+        <a href="/frontend/pages/contact.html">Contact Us</a>
+        <a href="#">Careers</a>
+        <a href="#">Help</a>
+      </div>
+      <div class="footer-column">
+        <h3>Legal & Privacy</h3>
+        <a href="#">FAQs</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+      <div class="footer-column">
+        <h3>Categories</h3>
+        <a href="#">Workshops</a>
+        <a href="#">Meetups</a>
+        <a href="#">Conferences</a>
+        <a href="#">Webinars</a>
+      </div>
+      <div class="footer-column">
+        <h3>Follow Us</h3>
+        <a href="#">Facebook</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+      </div>
+    </div>
+    <p class="footer-bottom">© 2025 EventsHub. All rights reserved.</p>
+  </footer>
+</body>
+
+</html>
